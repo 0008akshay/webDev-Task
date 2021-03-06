@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<div class="container">
+  <div style="text-align:center">
+    <h2 style="color: darkmagenta;">Contact Us</h2>
+    <p style="color: firebrick;">Drop a Message,we will get to you within 24 hours:</p>
+  </div>
+  <div class="row">
+    <div class="column">
+      <img src="static/1.png" style="width:80%">
+    </div>
+    
+   <div class="column">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.name.label }}
+        {{ form.name }}
+        {{ form.email.label }}
+        {{ form.email }}
+
+        {{ form.subject.label }}
+        {{ form.subject }}
+
+        {{ form.message.label }}
+        {{ form.message }}
+
+        {{ form.submit }}   
+        
+    </form>
+    </div>
+  </div>
+</div>
+</p>
+{% endblock %}
