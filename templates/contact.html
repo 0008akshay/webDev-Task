@@ -6,6 +6,15 @@
     <h2 style="color: darkmagenta;">Contact Us</h2>
     <p style="color: firebrick;">Drop a Message,we will get to you within 24 hours:</p>
   </div>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flash style="float: right; text-decoration: red; background-color: rgb(154, 221, 29);">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  {% endwith %}
   <div class="row">
     <div class="column">
       <img src="static/1.png" style="width:80%">

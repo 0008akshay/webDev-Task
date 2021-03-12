@@ -3,17 +3,20 @@ from forms import ContactForm
 from flask_mail import Mail,Message
 from threading import Thread
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 import os
 basedir=os.path.abspath(os.path.dirname(__file__))
 
 
-mail=Mail()
 app=Flask(__name__)
+
 
 app.secret_key = 'development key'
 app.config["SQLALCHEMY_DATABASE_URI"]='sqlite:///'+os.path.join(basedir,'Data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db=SQLAlchemy(app)
+mail=Mail(app)
+migrate=Migrate(app,db)
 db.init_app(app)
 
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
